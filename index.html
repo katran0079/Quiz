@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
@@ -22,19 +24,29 @@
             <div id="questionsDiv">
             <p>This is just a quick little timed quiz that tests some basic knowledge of the great apes.</p>
             </div>
-            <div id="responseDiv"></div>
+            <div id="responseDiv">
+                <p id= 'a'></p>
+                <p id= 'b'></p>
+                <p id= 'c'></p>
+                <p id= 'd'></p>
+            </div>
         </div>
      <div class="row">
         <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <button type="button" class="btn btn-success" id="start">Start the Quiz!</button>
+        <div class="col-sm-8 button-list">
+            <button type="button" class="btn btn-success" id="start">Start</button>
+            <br>
             <button type="button" class="btn btn-success" id="buttonA answers">A</button>
+            <br>
             <button type="button" class="btn btn-success" id="buttonB answers">B</button>
+            <br>
             <button type="button" class="btn btn-success" id="buttonC answers">C</button>
             <button type="button" class="btn btn-success" id="buttonD answers">D</button>
+            <br>
             <button type="button" class="btn btn-success" id="submit answers">Submit</button>
      </div>
         
+    </div>
     </div>
 
     <script>
@@ -49,37 +61,37 @@
       var score = 0;
       var answer = ["b", "a", "d", "d", "c"];
       var countdown = 0;
+
+//buttons
+      $("#buttonA").on("click", (response = "a"));
+      $("#buttonB").on("click", (response = "b"));
+      $("#buttonC").on("click", (response = "c"));
+      $("#buttonD").on("click", (response = "d"));
+//Submit/Start button
+      $("#start").on('click', startgame());
 //hide and show buttons
       function hidebuttons() {
-        var buttons = document.getElementById("answers");
-        buttons.style.display = 'none';
+        document.getElementById("answers").style.visibility = 'hidden';
       }
 
       function hidestart() {
-        var buttons2 = document.getElementById("start");
-        buttons.style.display = 'none';
+        document.getElementById("start").style.visibility = 'hidden';
       }
 
       function showbuttons () {
-        var buttonshow = document.getElementById("answers");
-        buttonshow.style.display = 'visible';
+        document.getElementById("answers").style.visibility = 'initial';
       }
 
 //actual gameplay
-      function startgame() {
+function startgame() {
         hidestart();
         showbuttons();
         score = 0;
-      }
-
-      for (var i = 0; i > questions.length; i) {
+     for (var i = 0; i > questions.length; i) {
         $("#questionDiv").text(questions[i]);
         answers = answers[i];
         response = undefined;
-        setInterview(gradeQuestion(), 30000);
-      }
-
-      function gradeQuestion() {
+    function gradeQuestion() {
         if (response === answer) {
           alert("Correct! You chose: " + response + ".");
           score++;
@@ -93,9 +105,21 @@
           );
           i++;
         }
+        if (i > 4) {
+        quizGraded();
+        }
       }
+        setInterval(gradeQuestion(), 30000);
+        $("#submit").on("click", gradeQuestion());
+      }
+    }
+
+
+
+
 
       function quizGraded() {
+        document.getElementsByClassName("button-list").style.visibility = "hidden";
         $("#questionDiv").text("You got " + score + "/5.");
         if (score === 5) {
           $("#responseDiv").text(
@@ -119,14 +143,6 @@
         }
       }
 
-      //buttons
-      $("#buttonA").on("click", (response = "a"));
-      $("#buttonB").on("click", (response = "b"));
-      $("#buttonC").on("click", (response = "c"));
-      $("#buttonD").on("click", (response = "d"));
-      //Submit button
-      $("#buttonSubmit").on("click", gradeQuestion());
-      $("#start").on('click', startgame());
     </script>
   </body>
 </html>
