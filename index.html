@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div class="jumbotron">
+     <div class="row">
+     <div class="col-sm-2"></div>
+     <div class="col-sm-8">
+        <h1>Welcome to the Great Ape Quiz Game</h1>
+        <h3>Test your knowledge of the great apes!</h3>
+     </div>
+     <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div id="questionsDiv">
+            <p>This is just a quick little timed quiz that tests some basic knowledge of the great apes.</p>
+            </div>
+            <div id="responseDiv"></div>
+        </div>
+     <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <button type="button" class="btn btn-success" id="start">Start the Quiz!</button>
+            <button type="button" class="btn btn-success" id="buttonA answers">A</button>
+            <button type="button" class="btn btn-success" id="buttonB answers">B</button>
+            <button type="button" class="btn btn-success" id="buttonC answers">C</button>
+            <button type="button" class="btn btn-success" id="buttonD answers">D</button>
+            <button type="button" class="btn btn-success" id="submit answers">Submit</button>
+     </div>
+        
+    </div>
+
+    <script>
+      var questions = [
+        "Which of the following isn't a great ape? (a) Orangutans, (b) Gorillas, (c) Lemurs, (d) Bonobos",
+        "Which great ape is the most arboreal? (a) Orangutans, (b) Gorillas, (c) Chimpanzees, (d) Humans",
+        "Which great ape is the most capable swimmer?",
+        "Which great ape(s) hunt and eat other animals?",
+        "Which great ape is genetically closest to humans?"
+      ];
+      var response;
+      var score = 0;
+      var answer = ["b", "a", "d", "d", "c"];
+      var countdown = 0;
+//hide and show buttons
+      function hidebuttons() {
+        var buttons = document.getElementById("answers");
+        buttons.style.display = 'none';
+      }
+
+      function hidestart() {
+        var buttons2 = document.getElementById("start");
+        buttons.style.display = 'none';
+      }
+
+      function showbuttons () {
+        var buttonshow = document.getElementById("answers");
+        buttonshow.style.display = 'visible';
+      }
+
+//actual gameplay
+      function startgame() {
+        hidestart();
+        showbuttons();
+        score = 0;
+      }
+
+      for (var i = 0; i > questions.length; i) {
+        $("#questionDiv").text(questions[i]);
+        answers = answers[i];
+        response = undefined;
+        setInterview(gradeQuestion(), 30000);
+      }
+
+      function gradeQuestion() {
+        if (response === answer) {
+          alert("Correct! You chose: " + response + ".");
+          score++;
+          i++;
+        } else {
+          alert(
+            "Wrong, you chose: " +
+              response +
+              ". The correct answer was: " +
+              answer
+          );
+          i++;
+        }
+      }
+
+      function quizGraded() {
+        $("#questionDiv").text("You got " + score + "/5.");
+        if (score === 5) {
+          $("#responseDiv").text(
+            "You are a wise orangutan! Congratulations, you intelligent creature! You got the best score possible."
+          );
+        }
+        if (score === 4) {
+          $("#responseDiv").text(
+            "You are a gorilla genius! You're smart, but you can do better."
+          );
+        }
+        if (score === 3) {
+          $("#responseDiv").text(
+            "You are a clever chimpanzee! You did okay, but you can do better."
+          );
+        }
+        if (score < 3) {
+          $("#responseDiv").text(
+            "You are a basic bonobo! Try again when you have done your homework."
+          );
+        }
+      }
+
+      //buttons
+      $("#buttonA").on("click", (response = "a"));
+      $("#buttonB").on("click", (response = "b"));
+      $("#buttonC").on("click", (response = "c"));
+      $("#buttonD").on("click", (response = "d"));
+      //Submit button
+      $("#buttonSubmit").on("click", gradeQuestion());
+      $("#start").on('click', startgame());
+    </script>
+  </body>
+</html>
