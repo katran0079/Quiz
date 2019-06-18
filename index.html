@@ -1,148 +1,75 @@
+<!-- Students: Our work lies in the js file. -->
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en-us">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Monster Hunter Quiz</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
 
-    <div class="jumbotron">
-     <div class="row">
-     <div class="col-sm-2"></div>
-     <div class="col-sm-8">
-        <h1>Welcome to the Great Ape Quiz Game</h1>
-        <h3>Test your knowledge of the great apes!</h3>
-     </div>
-     <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div id="questionsDiv">
-            <p>This is just a quick little timed quiz that tests some basic knowledge of the great apes.</p>
+  <body>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div id="head">
+          <h1>Monster Hunter Quiz</h1>
+          <h3>Test your Monster Hunter Knowledge</h3>
+      </div>
+      <h3>Timer</h3>
+      <div id="display">05:00</div>
+      <div id="buttons">
+        <button id="start">Start</button>
+      </div>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="jumbotron col-sm-8">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="textDiv"><h3>Press Start to Begin!</h3></div>
+                <div class="QAdiv">
+                    <div id="q1" class="row"></div>
+                    <div id="a1"></div>
+                    <div id="q2" class="row"></div>
+                    <div id="a2"></div>
+
+                    <div id="q3" class="row"></div>
+                    <div id="a3"></div>
+
+                    <div id="q4" class="row"></div>
+                    <div id="a4"></div>
+                    <div id="q5" class="row"></div>
+                    <div id="a5"></div>
+                    <div id="q6" class="row"></div>
+                    <div id="a6"></div>
+                    <div id="q7" class="row"></div>
+                    <div id="a7"></div>
+                    <div id="q8" class="row"></div>
+                    <div id="a8"></div>
+                    <div id="q9" class="row"></div>
+                    <div id="a9"></div>
+                    <div id="q10" class="row"></div>
+                    <div id="a10" ></div>
+                    <div id="submitplace"></div>
             </div>
-            <div id="responseDiv">
-                <p id= 'a'></p>
-                <p id= 'b'></p>
-                <p id= 'c'></p>
-                <p id= 'd'></p>
+            <div id="flavorText"></div>
             </div>
         </div>
-     <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8 button-list">
-            <button type="button" class="btn btn-success" id="start">Start</button>
-            <br>
-            <button type="button" class="btn btn-success" id="buttonA answers">A</button>
-            <br>
-            <button type="button" class="btn btn-success" id="buttonB answers">B</button>
-            <br>
-            <button type="button" class="btn btn-success" id="buttonC answers">C</button>
-            <button type="button" class="btn btn-success" id="buttonD answers">D</button>
-            <br>
-            <button type="button" class="btn btn-success" id="submit answers">Submit</button>
-     </div>
-        
-    </div>
     </div>
 
-    <script>
-      var questions = [
-        "Which of the following isn't a great ape? (a) Orangutans, (b) Gorillas, (c) Lemurs, (d) Bonobos",
-        "Which great ape is the most arboreal? (a) Orangutans, (b) Gorillas, (c) Chimpanzees, (d) Humans",
-        "Which great ape is the most capable swimmer?",
-        "Which great ape(s) hunt and eat other animals?",
-        "Which great ape is genetically closest to humans?"
-      ];
-      var response;
-      var score = 0;
-      var answer = ["b", "a", "d", "d", "c"];
-      var countdown = 0;
-
-//buttons
-      $("#buttonA").on("click", (response = "a"));
-      $("#buttonB").on("click", (response = "b"));
-      $("#buttonC").on("click", (response = "c"));
-      $("#buttonD").on("click", (response = "d"));
-//Submit/Start button
-      $("#start").on('click', startgame());
-//hide and show buttons
-      function hidebuttons() {
-        document.getElementById("answers").style.visibility = 'hidden';
-      }
-
-      function hidestart() {
-        document.getElementById("start").style.visibility = 'hidden';
-      }
-
-      function showbuttons () {
-        document.getElementById("answers").style.visibility = 'initial';
-      }
-
-//actual gameplay
-function startgame() {
-        hidestart();
-        showbuttons();
-        score = 0;
-     for (var i = 0; i > questions.length; i) {
-        $("#questionDiv").text(questions[i]);
-        answers = answers[i];
-        response = undefined;
-    function gradeQuestion() {
-        if (response === answer) {
-          alert("Correct! You chose: " + response + ".");
-          score++;
-          i++;
-        } else {
-          alert(
-            "Wrong, you chose: " +
-              response +
-              ". The correct answer was: " +
-              answer
-          );
-          i++;
-        }
-        if (i > 4) {
-        quizGraded();
-        }
-      }
-        setInterval(gradeQuestion(), 30000);
-        $("#submit").on("click", gradeQuestion());
-      }
-    }
-
-
-
-
-
-      function quizGraded() {
-        document.getElementsByClassName("button-list").style.visibility = "hidden";
-        $("#questionDiv").text("You got " + score + "/5.");
-        if (score === 5) {
-          $("#responseDiv").text(
-            "You are a wise orangutan! Congratulations, you intelligent creature! You got the best score possible."
-          );
-        }
-        if (score === 4) {
-          $("#responseDiv").text(
-            "You are a gorilla genius! You're smart, but you can do better."
-          );
-        }
-        if (score === 3) {
-          $("#responseDiv").text(
-            "You are a clever chimpanzee! You did okay, but you can do better."
-          );
-        }
-        if (score < 3) {
-          $("#responseDiv").text(
-            "You are a basic bonobo! Try again when you have done your homework."
-          );
-        }
-      }
-
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="reverse.js"></script>
   </body>
 </html>
