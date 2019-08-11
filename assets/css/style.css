@@ -1,0 +1,37 @@
+form {
+  margin: 15px;
+}
+
+.jumbotron {
+  opacity: 0.9;
+  background-color: black;
+  color: white;
+  font-family: "Arvo", serif;
+}
+
+.jumbotron p {
+  opacity: 1;
+}
+
+#head {
+  background-color: black;
+  margin: 10%;
+  text-align: center;
+  opacity: 0.9;
+  color: white;
+  font-family: "Arvo", serif;
+}
+
+#timer {
+  text-align: center;
+  background-color: black;
+  margin: 20px;
+  color: white;
+  opacity: 0.9;
+  font-family: "Arvo", serif;
+}
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
+}

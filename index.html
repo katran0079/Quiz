@@ -12,54 +12,154 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+
   </head>
 
-  <body>
+  <body background="assets/images/rathalos.jpg">
 <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-      <div id="head">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+    <div id="head">
+      <div id="title">
           <h1>Monster Hunter Quiz</h1>
           <h3>Test your Monster Hunter Knowledge</h3>
       </div>
-      <h3>Timer</h3>
-      <div id="display">05:00</div>
-      <div id="buttons">
-        <button id="start">Start</button>
-      </div>
+
+    </div>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-5"></div>
+  <div id="timer" class="col-sm-2">
+    <h3>Timer</h3>
+    <div id="display">05:00</div>
+    <div id="buttons">
+      <button id="start">Start</button>
+    </div></div>
+  </div>
+
     <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="jumbotron col-sm-8">
+    <div class="col-sm-3"></div>
+    <div class="jumbotron col-sm-6 quizTron">
         <div class="row">
             <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <div class="textDiv"><h3>Press Start to Begin!</h3></div>
+            <div class="col-sm-8 test">
+                <div id="textDiv"><h3 id="hello">Press Start to Begin!</h3></div>
                 <div class="QAdiv">
-                    <div id="q1" class="row"></div>
-                    <div id="a1"></div>
-                    <div id="q2" class="row"></div>
-                    <div id="a2"></div>
+                    <div id="q1" class="row">
+                    <p>What is the first large monster that you encounter in Monster Hunter World?
+                        </p>
+                    <form action="" id="a1" method="post">
+                            <input type="radio" name="question1" value="a" /> Great Jagras<br> 
+                            <input type="radio" name="question1" value="b" /> Paolumu <br>
+                            <input type="radio" name="question1" value="c" /> Fatalis<br>
+                            <input type="radio" name="question1" value="d" /> Dodogama<br>
+                    </form></div>
+                    <div id="q2" class="row">
+                    <p>What is the first brute wyvern you encounter in Monster Hunter World?</p></div>
+                    <div class="row">
+                      <form action="" id ="a2" method="post">
+                            <input type="radio" name="question2" value="a" /> Anjanath<br>
+                            <input type="radio" name="question2" value="b" /> Barroth<br>
+                            <input type="radio" name="question2" value="c" /> Uragaan<br>
+                            <input type="radio" name="question2" value="d" /> Rathian<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q3" class="row">
+                    <p>Rathalos is known as the ____ of the Skies?</p></div>
+                    <div class="row">
+                      <form action=""  id="a3" method="post">
+                            <input type="radio" name="question3" value="a" /> Emperor<br>
+                            <input type="radio" name="question3" value="b" /> King<br>
+                            <input type="radio" name="question3" value="c" /> Lord<br>
+                            <input type="radio" name="question3" value="d" /> Baron<br>
+                      </form>
+                    </div>
+                    
+                    <div id="q4" class="row">
+                    <p>Which of the following weapon types cannot cut tails?</p></div>
+                    <div class="row">
+                      <form action=""  id="a4" method="post">
+                            <input type="radio" name="question4" value="a" /> Sword and Shield<br>
+                            <input type="radio" name="question4" value="b" /> Switch Axe<br>
+                            <input type="radio" name="question4" value="c" /> Heavy Bowgun<br>
+                            <input type="radio" name="question4" value="d" /> Hammer<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q5" class="row">
+                    <p>Which weapon cannot KO monsters normally* (*without the use of special items)?</p></div>
+                    <div class="row">  
+                    <form action=""  id="a5" method="post">
+                            <input type="radio" name="question5" value="a" /> Hammer<br>
+                            <input type="radio" name="question5" value="b" /> Sword and Shield<br>
+                            <input type="radio" name="question5" value="c" /> Longsword<br>
+                            <input type="radio" name="question5" value="d" /> Hunting Horn<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q6" class="row">
+                    <p>Which of the following monsters has not appeared in Monster Hunter World?</p></div>
+                    <div class="row">  
+                    <form action="" id="a6" method="post">
+                            <input type="radio" name="question6" value="a" /> Ancient Leshen<br>
+                            <input type="radio" name="question6" value="b" /> Kushala Daora<br>
+                            <input type="radio" name="question6" value="c" /> Behemoth<br>
+                            <input type="radio" name="question6" value="d" /> Fatalis<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q7" class="row">
+                    <p>Which of the following monsters isn't an Elder Dragons?</p></div>
+                    <div class="row">  
+                    <form action="" id="a7" method="post">
+                            <input type="radio" name="question7" value="a" /> Nergigante<br>
+                            <input type="radio" name="question7" value="b" /> Dodogama<br>
+                            <input type="radio" name="question7" value="c" /> Kirin<br>
+                            <input type="radio" name="question7" value="d" /> Kushala Daora<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q8" class="row">
+                    <p>Which of the following mechanics are Elder Dragons immune to?</p></div>
+                    <div class="row">  
+                    <form action="" id="a8" method="post">
+                            <input type="radio" name="question8" value="a" /> Status effects<br>
+                            <input type="radio" name="question8" value="b" /> Hunter Traps<br>
+                            <input type="radio" name="question8" value="c" /> Knockouts<br>
+                            <input type="radio" name="question8" value="d" /> Staggers<br>
 
-                    <div id="q3" class="row"></div>
-                    <div id="a3"></div>
-
-                    <div id="q4" class="row"></div>
-                    <div id="a4"></div>
-                    <div id="q5" class="row"></div>
-                    <div id="a5"></div>
-                    <div id="q6" class="row"></div>
-                    <div id="a6"></div>
-                    <div id="q7" class="row"></div>
-                    <div id="a7"></div>
-                    <div id="q8" class="row"></div>
-                    <div id="a8"></div>
-                    <div id="q9" class="row"></div>
-                    <div id="a9"></div>
-                    <div id="q10" class="row"></div>
-                    <div id="a10" ></div>
-                    <div id="submitplace"></div>
+                      </form>
+                      </div>
+                    
+                    <div id="q9" class="row">
+                    <p>Which element is most effective against Nergigante?</p></div>
+                    <div class="row">  
+                    <form action="" id="a9" method="post">
+                            <input type="radio" name="question9" value="a" /> Water<br>
+                            <input type="radio" name="question9" value="b" /> Ice<br>
+                            <input type="radio" name="question9" value="c" /> Thunder<br>
+                            <input type="radio" name="question9" value="d" /> Fire<br>
+                      </form>
+                      </div>
+                    
+                    <div id="q10" class="row">
+                    <p>Tempered Monsters have the same ____ as their regular counterparts.</p></div>
+                    <div class="row">
+                    <form action="" id="a10" method="post">
+                      <input type="radio" name="question10" value="a" /> Health<br>
+                      <input type="radio" name="question10" value="b" /> Mana<br>
+                      <input type="radio" name="question10" value="c" /> Attack Damage<br>
+                      <input type="radio" name="question10" value="d" /> Drops<br>
+                    </form>
+                  </div>
+                    
+                    <div id="submitplace"><button id="submit">Submit</button>
+                    <a href="index.html"><button id="retry">Reload the page and try again!</button></a></div>
             </div>
             <div id="flavorText"></div>
             </div>
@@ -70,6 +170,6 @@
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
     ></script>
-    <script type="text/javascript" src="reverse.js"></script>
+    <script type="text/javascript" src="assets/javascript/javascript.js"></script>
   </body>
 </html>
